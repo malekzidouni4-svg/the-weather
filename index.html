@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Atmos — Weather Intelligence</title>
+    <meta name="description" content="Real-time atmospheric intelligence, ultra-detailed forecasts, dynamic live skyscapes, air quality monitoring, and precision weather telemetry." />
+    <meta property="og:title" content="Atmos — Weather Intelligence" />
+    <meta property="og:description" content="Real-time atmospheric intelligence, ultra-detailed forecasts, dynamic live skyscapes, air quality monitoring, and precision weather telemetry." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- PWA & Mobile Web App Meta -->
+    <meta name="theme-color" content="#102b48" id="theme-color-meta" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Atmos" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+    <script>
+      // Protection against third-party extension interceptors trying to write to getter-only window.fetch
+      try {
+        var proto = window;
+        while (proto && !Object.prototype.hasOwnProperty.call(proto, 'fetch')) {
+          proto = Object.getPrototypeOf(proto);
+        }
+        var desc = proto ? Object.getOwnPropertyDescriptor(proto, 'fetch') : null;
+        if (desc && desc.get && !desc.set) {
+          var realFetch = window.fetch.bind(window);
+          Object.defineProperty(window, 'fetch', {
+            get: function () {
+              return realFetch;
+            },
+            set: function (newFn) {
+              realFetch = newFn;
+            },
+            configurable: true,
+            enumerable: true,
+          });
+        }
+      } catch (e) {
+        // Safe fallback
+      }
+
+      // Safeguard for disabled HMR environments where Vite client WebSocket is intentionally absent
+      window.addEventListener('error', function (event) {
+        if (event && event.message && (event.message.includes("reading 'send'") || event.message.includes('WebSocket'))) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      });
+      window.addEventListener('unhandledrejection', function (event) {
+        if (event && event.reason && event.reason.message && event.reason.message.includes("reading 'send'")) {
+          event.stopImmediatePropagation();
+          event.preventDefault();
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

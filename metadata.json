@@ -1,0 +1,6 @@
+{
+  "name": "Atmos — Weather Intelligence",
+  "description": "Real-time atmospheric intelligence, ultra-detailed forecasts, dynamic live skyscapes, air quality monitoring, and precision weather telemetry.",
+  "requestFramePermissions": ["geolocation", "notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
